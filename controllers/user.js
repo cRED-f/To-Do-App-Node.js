@@ -6,7 +6,7 @@ import ErrorHandler from "../middlewares/error.js";
 export const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    let user = await User.findOne({ email }).select("+password"); //schema te pass select:false chilo tai kotao access chilo nh tai aikhane +password kore add kore disi jate buja jai pass access korte parbe
+    let user = await User.findOne({ email }).select("+password");
 
     if (!user) {
       return next(new ErrorHandler("Invalid Email or Password", 400));
@@ -35,27 +35,13 @@ export const register = async (req, res, next) => {
       email,
       password: hashedPassword,
     });
-    //utils e jabe
+
     setCookies(user, res, "Registered Successfully", 201);
   } catch (error) {
     next(error);
   }
 };
-// export const getMyProfile = async (req, res) => {
-//   const { token } = req.cookies;
-//   if (!token) {
-//     return res.status(404).json({
-//       success: true,
-//       message: "Login First",
-//     });
-//   }
-//   const decodedToken = jwt.verify(token, process.env.JWTCODE);
-//   const user = await User.findById(decodedToken._id);
-//   res.status(200).json({
-//     success: true,
-//     user,
-//   });
-// };
+
 export const getMyProfile = async (req, res, next) => {
   try {
     res.status(200).json({

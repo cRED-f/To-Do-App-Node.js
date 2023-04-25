@@ -13,12 +13,12 @@ const schema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    select: false, //aikhane false dewate kotao access pabe nh pass
+    select: false,
   },
   createdAt: {
     type: Date,
     default: Date.now,
   },
 });
-//always use schema plural form
+
 export const User = mongoose.model("User", schema);

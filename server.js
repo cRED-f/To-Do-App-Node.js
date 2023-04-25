@@ -1,6 +1,6 @@
 import { app } from "./app.js";
 import { connectDB } from "./data/database.js";
-//mongoose connect
+
 connectDB();
 
 app.listen(process.env.PORT, () => {

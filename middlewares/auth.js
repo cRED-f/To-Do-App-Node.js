@@ -1,6 +1,6 @@
 import { User } from "../models/user.js";
 import jwt from "jsonwebtoken";
-//jekhane jekhane login thakai lgbe sekhane ata use hbe
+
 export const isAuthenticated = async (req, res, next) => {
   const { token } = req.cookies;
   if (!token) {

@@ -11,7 +11,6 @@ config({
   path: "./data/config.env",
 });
 
-//middlewares
 app.use(express.json());
 app.use(cookieParser());
 app.use(
@@ -21,9 +20,8 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
-); //database and localserver cross connection deploy korrar tym  e possible nh so cors use kora hy
+);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/task", taskRouter);
 
-//error middleware
 app.use(errorMiddlewares);

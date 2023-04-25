@@ -21,5 +21,5 @@ const schema = new mongoose.Schema({
     default: Date.now,
   },
 });
-//always use schema plural form
+
 export const Task = mongoose.model("Task", schema);
