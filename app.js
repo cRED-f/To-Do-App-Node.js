@@ -21,7 +21,7 @@ app.use(
     credentials: true,
   })
 );
-app.use("/api/v1/users", userRouter);
-app.use("/api/v1/task", taskRouter);
+app.use("/api/users", userRouter);
+app.use("/api/task", taskRouter);
 
 app.use(errorMiddlewares);
